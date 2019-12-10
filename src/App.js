@@ -12,14 +12,27 @@ import CreateVans from "./components/van/create-van.component";
 import Login from './components/auth/login.component';
 import Register from './components/auth/register.component';
 
-class App extends Component {
-  componentDidMount(){
 
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      username: ''
+    }
+  }
+  componentDidMount(){
+    const username = localStorage.getItem('username');
+    if(username){
+      this.setState({
+        username: username
+      })
+    }
   }
   render(){
     return (
       <Router>
         <div className="container">
+        {this.state.username}
         <Navbar />
         <br/>
           <Route path="/" exact component={ExercisesList} />

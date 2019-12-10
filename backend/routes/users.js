@@ -1,6 +1,7 @@
 const router = require('express').Router();
 let User = require('../models/user.model');
 
+
 const bcrypt = require("bcryptjs");
 
 router.route('/').get((req, res) => {
@@ -53,7 +54,19 @@ User.findOne({ email: req.body.email }).then(user => {
 });
 
 router.post("/login", (req, res) => {
-    
+    User.findOne({ email : req.body.username }).then(user => {
+		if(!user){
+			return res.status(404).json({ emailnotfound: "Email not found" });	  
+		}else{
+			bcrypt.compare(req.body.password, user.password).then(isMatch => {
+				if(isMatch){
+					// Login Success 
+				}else{
+					return res.json("Not Success");
+				}
+			})
+		}
+	})
 })
 
 module.exports = router;
