@@ -8,23 +8,26 @@ export default class Navbar extends Component {
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         <Link to="/" className="navbar-brand">ExcerTracker</Link>
         <div className="collpase navbar-collapse">
-        <ul className="navbar-nav mr-auto">
-          <li className="navbar-item">
-          <Link to="/" className="nav-link">Exercises</Link>
-          </li>
-          <li className="navbar-item">
-          <Link to="/create" className="nav-link">Create Exercise Log</Link>
-          </li>
-          <li className="navbar-item">
-          <Link to="/user" className="nav-link">Create User</Link>
-          </li>
-          <li className="navbar-item">
-          <Link to="/sample/create" className="nav-link">Create Sample </Link>
-          </li>
-          <li className="navbar-item">
-          <Link to="/van/create" className="nav-link">Create Van </Link>
-          </li>
-        </ul>
+			<ul className="navbar-nav mr-auto">
+				<li className="navbar-item">
+					<Link to="/" className="nav-link">Exercises</Link>
+				</li>
+				<li className="navbar-item">
+					<Link to="/create" className="nav-link">Create Exercise Log</Link>
+				</li>
+				<li className="navbar-item">
+					<Link to="/user" className="nav-link">Create User</Link>
+				</li>
+				<li className="navbar-item">
+					<Link to="/sample/create" className="nav-link">Create Sample </Link>
+				</li>
+				<li className="navbar-item">
+					<Link to="/van/create" className="nav-link">Create Van </Link>
+				</li>
+				<li className="navbar-item">
+					<Link to="/login" className="nav-link">Login</Link>
+				</li>
+			</ul>
         </div>
       </nav>
     );
