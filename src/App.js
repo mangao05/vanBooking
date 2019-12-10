@@ -11,13 +11,14 @@ import CreateSample from "./components/sample/create-sample.component";
 import CreateVans from "./components/van/create-van.component";
 import Login from './components/auth/login.component';
 import Register from './components/auth/register.component';
-
-
+import UserNavbar from './components/user-navbar.component';
+import UserList from './components/users/user-list.component';
 class App extends Component {
   constructor(){
     super();
     this.state = {
-      username: ''
+      username: '',
+      loggedIn : false
     }
   }
   componentDidMount(){
@@ -32,10 +33,11 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-        {this.state.username}
-        <Navbar />
+        { this.state.loggedIn ? <Navbar /> : <UserNavbar/>}
+        
         <br/>
-          <Route path="/" exact component={ExercisesList} />
+          { this.state.loggedIn ? <Route path="/" exact component={ExercisesList} /> : <Route path="/" exact component={UserList} />}
+          
           <Route path="/edit/:id" component={EditExercise} />
           <Route path="/create" component={CreateExercise} />
           <Route path="/user" component={CreateUser} />
